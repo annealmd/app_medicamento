@@ -1,10 +1,11 @@
 <h1> app_medicamento </h1>
-Agenda de  Medicamento - Medicine Agenda
+Agenda de  Medicamento - Medicine Agenda <br>
+Flutter - Dart - SQLite
 
 
 <h2> O que é o projeto </h2>
 É uma agenda de medicamento direcionada para pessoas idosas.
-Flutter - Dart - SQLite
+
 
 <h2> Principais funcionalidades </h2>
 Telas e descrição
@@ -20,7 +21,7 @@ flutter run
 
 <ul> 
   <li> <b>01 julho 2020  </b> </li>
-  Esqueleto do projeto: subi todas is arquivos necessários.
+  Esqueleto do projeto: subi todas is arquivos necessários.<br>
   Providers, screens, widgets, helpers, models
   <li><b> 05 julho 2020 </b> </li>
   Homepage e providers
