@@ -1,6 +1,7 @@
 <h1> app_medicamento </h1>
 Agenda de  Medicamento - Medicine Agenda <br>
-Flutter - Dart - SQLite
+Flutter - Dart - SQLite </b>
+LOCAL DataBase
 
 
 <h2> O que é o projeto </h2>
