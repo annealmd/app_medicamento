@@ -3,6 +3,9 @@ Agenda de  Medicamento - Medicine Agenda <br>
 Flutter - Dart - SQLite </b>
 LOCAL DataBase
 
+<h1> Target is Elderly People </h1>
+the strategy is to avoid to take wrong medicine, because the boxes are too similar.
+
 
 <h2> O que é o projeto </h2>
 É uma agenda de medicamento direcionada para pessoas idosas.
