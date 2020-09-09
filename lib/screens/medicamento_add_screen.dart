@@ -84,9 +84,9 @@ class _MedicamentoAddScreenState extends State<MedicamentoAddScreen> {
         _editedMedicamento.duracao,
         _editedMedicamento.dataInicio,
         _editedMedicamento.horaInicio,
-        _editedMedicamento.isContinuo);    
+        _editedMedicamento.isContinuo);
 
-    Navigator.of(context).pop('/user-medicamentos');
+    Navigator.of(context).popAndPushNamed('/user-medicamentos');
   }
 
   @override
@@ -300,7 +300,9 @@ class _MedicamentoAddScreenState extends State<MedicamentoAddScreen> {
                   CheckboxListTile(
                     value: checkboxValue,
                     onChanged: (bool val) {
-                      setState(() => checkboxValue = true);
+                      setState(() {
+                        checkboxValue = !checkboxValue;
+                      });
                       _editedMedicamento = Medicamento(
                           id: _editedMedicamento.id,
                           title: _editedMedicamento.title,

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import './user_medicamento_screen.dart';
-
 class AboutMe extends StatefulWidget {
   static const routeName = '/about';
 
@@ -25,7 +23,7 @@ class _AboutMeState extends State<AboutMe> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-            image: AssetImage( 'assets/images/star_background.png'),
+            image: AssetImage('assets/images/star_background.png'),
             fit: BoxFit.cover),
       ),
       child: Scaffold(
@@ -36,15 +34,18 @@ class _AboutMeState extends State<AboutMe> {
           leading: IconButton(
               icon: Icon(Icons.home),
               onPressed: () {
-                Navigator.of(context).pop();
+                Navigator.of(context).popAndPushNamed('/user-medicamentos');
               }),
         ),
-        body: Center(
+        body: SingleChildScrollView(
           child: Container(
+            alignment: Alignment.center,
             child: Column(
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.only(top: 30, bottom: 10),
+                  margin: EdgeInsets.only(
+                    top: 30,
+                  ),
                   width: MediaQuery.of(context).size.width * 0.95,
                   child: Card(
                     shape: RoundedRectangleBorder(

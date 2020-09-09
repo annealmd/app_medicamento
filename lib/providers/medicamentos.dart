@@ -47,7 +47,7 @@ class Medicamentos with ChangeNotifier {
     deleteAlarmes(frequencia, medId);
     await DBHelper.deleteMedicamento('user_medicamentos', medId);
     _items.removeWhere((element) => element.id == medId);
-    
+
     notifyListeners();
   }
 
@@ -55,8 +55,13 @@ class Medicamentos with ChangeNotifier {
     _items[id - 1] = novoMedicamento;
     notifyListeners();
     deleteAlarmes(novoMedicamento.frequencia, novoMedicamento.id);
-    _addAlarmes( novoMedicamento.frequencia,   novoMedicamento.horaInicio, 
-    novoMedicamento.id, novoMedicamento.title, novoMedicamento.quantidade, novoMedicamento.dose);
+    _addAlarmes(
+        novoMedicamento.frequencia,
+        novoMedicamento.horaInicio,
+        novoMedicamento.id,
+        novoMedicamento.title,
+        novoMedicamento.quantidade,
+        novoMedicamento.dose);
     await DBHelper.updateMedicamento(
         'user_medicamentos',
         {
@@ -84,7 +89,7 @@ class Medicamentos with ChangeNotifier {
     for (var i = 1; i <= _items.length; i++) {
       if (_items[i - 1].id != i) {
         id = i;
-        break;        
+        break;
       }
     }
     return id;
@@ -92,20 +97,23 @@ class Medicamentos with ChangeNotifier {
 
   //alarmes
   void _addAlarmes(int frequencia, DateTime horaInicio, int medId,
-  String medTitle, String quantidade, String dose) async {
+      String medTitle, String quantidade, String dose) async {
     for (var i = 0; i < (24 / frequencia); i++) {
-      print(' ******************* printando ${(frequencia * i)}');     
       await alarme.dailyNotification(
-          horaInicio.add(Duration(hours: (frequencia * i))), medId, medTitle.toUpperCase(), i, quantidade, dose);
+          horaInicio.add(Duration(hours: (frequencia * i))),
+          medId,
+          medTitle.toUpperCase(),
+          i,
+          quantidade,
+          dose);
     }
   }
 
   void deleteAlarmes(int frequencia, int medId) async {
-     for (var i = 0; i < (24 / frequencia); i++) {        
-      var alarmeId = (100 * medId) + i;   
-      print(' ******************* printando ${(alarmeId)}');
+    for (var i = 0; i < (24 / frequencia); i++) {
+      var alarmeId = (100 * medId) + i;
       await alarme.deleteNotification(alarmeId);
-      }    
+    }
   }
 
   void addMedicamento(
@@ -130,11 +138,11 @@ class Medicamentos with ChangeNotifier {
       horaInicio: horaInicio,
       isContinuo: isContinuo,
     );
+
     _items.add(novoMedicamento);
     notifyListeners();
     //notifications
-     _addAlarmes( frequencia,   horaInicio, id, title,
-      quantidade, dose);
+    _addAlarmes(frequencia, horaInicio, id, title, quantidade, dose);
 
     DBHelper.insert('user_medicamentos', {
       'id': novoMedicamento.id,
@@ -150,9 +158,8 @@ class Medicamentos with ChangeNotifier {
   }
 
   Future<void> fetchAndSetMedicamento() async {
-    print(_items.length);
     final dataList = await DBHelper.getData('user_medicamentos');
-    print('****** count from DATAbase');
+    print('****** Print from DATAbase rows');
     DBHelper.getCount();
     dataList.forEach((row) => print(row));
 
@@ -169,18 +176,21 @@ class Medicamentos with ChangeNotifier {
               isContinuo: item['isContinuo'] == 1 ? true : false,
             ))
         .toList();
-        medFinalizados();  
+    medFinalizados();
     notifyListeners();
-    print('*****_items LENGTH');
-    print(_items.length);
   }
 
-  void medFinalizados (){
+  void medFinalizados() {
     for (var i = 0; i < _items.length; i++) {
-      if (_items[i].dataInicio.add(Duration(days: _items[i].duracao + 1)).isBefore(DateTime.now()) ) {
-        medicamentoDelete(_items[i].frequencia, _items[i].id);              
+      if (_items[i]
+          .dataInicio
+          .add(Duration(
+              days: _items[i].duracao,
+              hours: _items[i].horaInicio.hour,
+              minutes: _items[i].horaInicio.minute + 10))
+          .isBefore(DateTime.now())) {
+        medicamentoDelete(_items[i].frequencia, _items[i].id);
       }
     }
-
   }
 }

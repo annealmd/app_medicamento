@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 
 import '../widgets/medicamento_list.dart';
 import '../widgets/app_drawer.dart';
@@ -20,7 +21,7 @@ class _UserMedicamentosScreenState extends State<UserMedicamentosScreen> {
         title: const Text('Meus Medicamentos'),
       ),
       drawer: AppDrawer(),
-      body:MedicamentoList(),
+      body: MedicamentoList(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blueGrey.shade800,
         onPressed: () {

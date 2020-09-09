@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:medicamento/screens/medicamento_detail_screen.dart';
 
 import 'package:provider/provider.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+//import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import './screens/welcome_screen.dart';
 import './screens/user_medicamento_screen.dart';
 import './providers/medicamentos.dart';
 import './screens/medicamento_editar_screen.dart';
@@ -17,7 +16,6 @@ void main() => runApp(Medicamento());
 
 class Medicamento extends StatelessWidget {
   const Medicamento({Key key}) : super(key: key);
-  
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +33,8 @@ class Medicamento extends StatelessWidget {
           accentColor: Colors.pink[600],
           fontFamily: 'Lato',
         ),
-        //home: auth.isAuth ? UserMedicamentossScreen() : AuthScreen(),
-        home: WelcomeScreen(),
+        debugShowCheckedModeBanner: false,
+        home: UserMedicamentosScreen(),
         routes: {
           UserMedicamentosScreen.routeName: (context) =>
               UserMedicamentosScreen(),

@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:medicamento/main.dart';
-import 'package:medicamento/widgets/medicamento_alarmes.dart';
-import 'package:provider/provider.dart';
 
-import '../widgets/medicamento_list.dart';
-import './user_medicamento_screen.dart';
+import 'package:medicamento/widgets/medicamento_alarmes.dart';
 
 class Alarmes extends StatelessWidget {
   static const routeName = '/alarmes';
-  
 
   @override
   Widget build(BuildContext context) {
@@ -19,10 +14,10 @@ class Alarmes extends StatelessWidget {
         leading: IconButton(
             icon: Icon(Icons.home),
             onPressed: () {
-              Navigator.of(context).pop('/user-medicamentos');  
+              Navigator.of(context).popAndPushNamed('/user-medicamentos');
             }),
       ),
-      body:MedicamentoAlarme(),
+      body: MedicamentoAlarme(),
     );
   }
 }

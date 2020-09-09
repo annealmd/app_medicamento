@@ -14,9 +14,10 @@ class NotificationManager {
     return flutterLocalNotificationsPlugin;
   }
 
-  void initNotifications() async{
+  void initNotifications() async {
     // initialise the plugin. app_icon needs to be a added as a drawable resource to the Android head project
-    var initializationSettingsAndroid = AndroidInitializationSettings('app_icon');
+    var initializationSettingsAndroid =
+        AndroidInitializationSettings('app_icon');
     var initializationSettingsIOS = IOSInitializationSettings(
       requestSoundPermission: false,
       requestBadgePermission: false,
@@ -68,8 +69,8 @@ class NotificationManager {
     await flutterLocalNotificationsPlugin.cancel(alarmeId);
   }
 
-  Future<void> dailyNotification(DateTime horaInicio, int medId, String medTitle, int i,
-      String quantidade, String dose) async {
+  Future<void> dailyNotification(DateTime horaInicio, int medId,
+      String medTitle, int i, String quantidade, String dose) async {
     var time = Time(horaInicio.hour, horaInicio.minute, horaInicio.second);
     var androidPlatformChannelSpecifics = AndroidNotificationDetails(
         'repeatDailyAtTime channel id',
@@ -87,8 +88,6 @@ class NotificationManager {
         '$quantidade $dose às ${(time.hour)}:${(time.minute)}',
         time,
         platformChannelSpecifics,
-        payload: 'remedio ${(medId)}'); 
+        payload: 'remedio ${(medId)}');
   }
-
-  
 }

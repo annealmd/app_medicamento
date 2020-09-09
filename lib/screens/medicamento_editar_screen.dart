@@ -94,9 +94,6 @@ class _MedicamentoEditarScreenState extends State<MedicamentoEditarScreen> {
       _isLoading = false;
     });
     Navigator.of(context).pop();
-    //Navigator.of(context).pushNamed(MedicamentoDetailScreen.routeName,arguments: _editedMedicamento.id);
-
-    //Navigator.of(context).popAndPushNamed('/user-medicamentos');
   }
 
   @override
@@ -339,7 +336,6 @@ class _MedicamentoEditarScreenState extends State<MedicamentoEditarScreen> {
                                       ),
                                       textInputAction: TextInputAction.next,
                                       keyboardType: TextInputType.number,
-                                     
                                       validator: (value) {
                                         if (int.parse(value) > 180) {
                                           return 'Entre menor do que 180';
