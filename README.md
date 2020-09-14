@@ -1,10 +1,16 @@
 <h1> app_medicamento </h1>
 Agenda de  Medicamento - Medicine Agenda <br>
 Flutter - Dart - SQLite </b>
-LOCAL DataBase
+LOCAL DataBase </br>
+<h4>This is my first project: idea and dev by me.</h4>
 
 <h1> Target is Elderly People </h1>
-the strategy is to avoid to take wrong medicine, because the boxes are too similar.
+the foccus of the project is to prevent the elderly to take wrong medicines, because the boxes are too similar.
+
+<h2> ScreenShots </h2>
+<img src="https://github.com/ETNINJA/app_medicamento/blob/master/IMG_20200813_115959_248.jpg" width="30%" height="30%">
+<img src="https://github.com/ETNINJA/app_medicamento/blob/master/IMG_20200813_121201_824.jpg" width="30%" height="30%">
+<img src="https://github.com/ETNINJA/app_medicamento/blob/master/IMG_20200821_090844_968.jpg" width="30%" height="30%">
 
 
 <h2> O que é o projeto </h2>
