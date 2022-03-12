@@ -3,6 +3,7 @@ Agenda de  Medicamento - Medicine Agenda <br>
 Flutter - Dart - SQLite </b>
 LOCAL DataBase </br>
 <h4>This is my first project: idea and dev by me.</h4>
+<h4> 03/2022 </h4> I´m in the process of updating this project as well as changing provider to BLoC and do it in Clean Arch.
 
 <h1> Target is Elderly People </h1>
 the foccus of the project is to prevent the elderly to take wrong medicines, because the boxes are too similar.
